@@ -69,6 +69,7 @@ public class State implements Comparable<State> {
             queenPositions[col] = i;
             if (heuristic(queenPositions) < currentBestHeuristic) {
                 currentBestPosition = i;
+                currentBestHeuristic = heuristic(queenPositions);
                 foundBetter = true;
             }
         }
