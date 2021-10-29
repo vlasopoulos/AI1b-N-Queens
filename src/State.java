@@ -17,9 +17,7 @@ public class State implements Comparable<State> {
     State(int n, int[] queenPositions) {
         this.n = n;
         this.queenPositions = new int[n];
-        for (int i = 0; i < n; i++) {
-            this.queenPositions[i] = queenPositions[i];
-        }
+        System.arraycopy(queenPositions, 0, this.queenPositions, 0, n);
         this.setScore();
     }
 
