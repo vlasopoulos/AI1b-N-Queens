@@ -63,16 +63,16 @@ public class State implements Comparable<State> {
     //Metakinise tin Queen sto column col se kaliteri thesi an ginetai
     boolean move(int col) {
         int currentBestHeuristic = heuristic(queenPositions);
-        int currentBestPosistion = queenPositions[col];
+        int currentBestPosition = queenPositions[col];
         boolean foundBetter = false;
         for (int i = 0; i < n; i++) {
             queenPositions[col] = i;
             if (heuristic(queenPositions) < currentBestHeuristic) {
-                currentBestPosistion = i;
+                currentBestPosition = i;
                 foundBetter = true;
             }
         }
-        queenPositions[col] = currentBestPosistion;
+        queenPositions[col] = currentBestPosition;
         return foundBetter;
     }
 
