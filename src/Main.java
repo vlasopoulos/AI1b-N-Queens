@@ -10,12 +10,14 @@ public class Main {
         }
         if (args.length == 2){
             n = Integer.parseInt(args[0]);
-            k = Integer.parseInt(args[1]);
+            if (args[1].equals("true")) useRR = true;
+            else k = Integer.parseInt(args[1]);
         }
         if (args.length == 3){
             n = Integer.parseInt(args[0]);
             k = Integer.parseInt(args[1]);
-            maxIterations = Integer.parseInt(args[2]);
+            if (args[2].equals("true")) useRR = true;
+            else maxIterations = Integer.parseInt(args[2]);
         }
 
         if (args.length == 4){
