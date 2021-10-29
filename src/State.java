@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class State implements Comparable<State>{
+public class State implements Comparable<State> {
 
     private int n;
     private int[] queenPositions;
@@ -14,7 +14,7 @@ public class State implements Comparable<State>{
         this.setScore();
     }
 
-    State (int n, int[] queenPositions){
+    State(int n, int[] queenPositions) {
         this.n = n;
         this.queenPositions = new int[n];
         for (int i = 0; i < n; i++) {
@@ -30,12 +30,12 @@ public class State implements Comparable<State>{
         }
     }
 
-    int heuristic(int[] positions){
+    int heuristic(int[] positions) {
         int totalScore = 0;
         for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
+            for (int j = i + 1; j < n; j++) {
                 if (positions[i] == positions[j]) totalScore++; // check same row threats
-                if (Math.abs(i-j) == Math.abs(positions[i] - positions[j])) totalScore++; // check diagonal threats
+                if (Math.abs(i - j) == Math.abs(positions[i] - positions[j])) totalScore++; // check diagonal threats
             }
         }
         return totalScore;
@@ -45,11 +45,11 @@ public class State implements Comparable<State>{
         this.score = heuristic(queenPositions);
     }
 
-    boolean isFinal(){
+    boolean isFinal() {
         return heuristic(queenPositions) == 0;
     }
 
-    ArrayList<State> getChildren(){
+    ArrayList<State> getChildren() {
         ArrayList<State> children = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             State child = new State(n, queenPositions);
@@ -70,7 +70,7 @@ public class State implements Comparable<State>{
 //        return false;
 //    }
 
-    boolean move(int col){
+    boolean move(int col) {
         int currentBestHeuristic = heuristic(queenPositions);
         int currentBestPosistion = queenPositions[col];
         boolean foundBetter = false;
@@ -85,7 +85,7 @@ public class State implements Comparable<State>{
         return foundBetter;
     }
 
-    void print(){
+    void print() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (queenPositions[j] == i) System.out.print("|Q");
