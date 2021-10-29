@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         int n = 8;
         int k = 20;
-        int maxIterations = 1000;
+        int maxIterations = 500;
 
         if (args.length == 1) {
             n = Integer.parseInt(args[0]);
