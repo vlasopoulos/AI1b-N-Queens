@@ -25,15 +25,15 @@ public class SpaceSearcher {
                 childStates.addAll(currentState.getChildren());
             }
 
-            Collections.sort(childStates);
-            states.clear();
-
             //an exoume kolisei se local minima add random states in childStates
             if (childStates.size() == 0) {
                 for (int j = 0; j < k; j++) {
                     childStates.add(new State(dimension));
                 }
             }
+
+            Collections.sort(childStates);
+            states.clear();
 
             if (childStates.size() < k) {
                 states.addAll(childStates);
