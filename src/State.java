@@ -61,13 +61,28 @@ public class State implements Comparable<State>{
         return children;
     }
 
+//    boolean move(int col){
+//        int initialHeuristic = heuristic(queenPositions);
+//        for (int i = 0; i < n; i++) {
+//            queenPositions[col] = i;
+//            if (heuristic(queenPositions) < initialHeuristic) return true;
+//        }
+//        return false;
+//    }
+
     boolean move(int col){
-        int initialHeuristic = heuristic(queenPositions);
+        int currentBestHeuristic = heuristic(queenPositions);
+        int currentBestPosistion = queenPositions[col];
+        boolean foundBetter = false;
         for (int i = 0; i < n; i++) {
             queenPositions[col] = i;
-            if (heuristic(queenPositions) < initialHeuristic) return true;
+            if (heuristic(queenPositions) < currentBestHeuristic) {
+                currentBestPosistion = i;
+                foundBetter = true;
+            }
         }
-        return false;
+        queenPositions[col] = currentBestPosistion;
+        return foundBetter;
     }
 
     void print(){
