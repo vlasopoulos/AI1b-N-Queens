@@ -28,6 +28,7 @@ public class State implements Comparable<State> {
         }
     }
 
+    //Sinolikos arithmos zevgariwn pou alliloapeilountai (emmesa i amesa)
     int heuristic(int[] positions) {
         int totalScore = 0;
         for (int i = 0; i < n; i++) {
@@ -59,15 +60,7 @@ public class State implements Comparable<State> {
         return children;
     }
 
-//    boolean move(int col){
-//        int initialHeuristic = heuristic(queenPositions);
-//        for (int i = 0; i < n; i++) {
-//            queenPositions[col] = i;
-//            if (heuristic(queenPositions) < initialHeuristic) return true;
-//        }
-//        return false;
-//    }
-
+    //Metakinise tin Queen sto column col se kaliteri thesi an ginetai
     boolean move(int col) {
         int currentBestHeuristic = heuristic(queenPositions);
         int currentBestPosistion = queenPositions[col];
