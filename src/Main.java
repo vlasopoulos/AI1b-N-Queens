@@ -6,7 +6,8 @@ public class Main {
         boolean useRR = false;
 
         if (args.length == 1) {
-            n = Integer.parseInt(args[0]);
+            if (args[0].equals("true")) useRR = true;
+            else n = Integer.parseInt(args[0]);
         }
         if (args.length == 2){
             n = Integer.parseInt(args[0]);
@@ -19,7 +20,6 @@ public class Main {
             if (args[2].equals("true")) useRR = true;
             else maxIterations = Integer.parseInt(args[2]);
         }
-
         if (args.length == 4){
             n = Integer.parseInt(args[0]);
             k = Integer.parseInt(args[1]);
